@@ -20,9 +20,8 @@ const carouselImages = [
 ]
 
 export default function Home() {
-  // Get the next 3 upcoming events
   const upcomingEvents = events.slice(0, 3)
-
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -50,35 +49,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Service Times */}
-      <section className="section-primary py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <p className="text-xl font-semibold text-foreground">JOIN US ONLINE THIS SUNDAY AT:</p>
-            <p className="text-lg text-foreground/90">9:00 AM, 11:00 AM AND 5:00 PM</p>
-          </div>
-          <div className="flex justify-center gap-6">
-            <Link
-              href="/livestream"
-              className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition"
-            >
-              Watch Livestream
-            </Link>
-            <Link
-              href="/visit"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition"
-            >
-              Plan Your Visit
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Join Us Section */}
+      {/* Join Us Section - Combined service times and call-to-action */}
       <section className="section-secondary py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12 items-center">
-            {/* Left Column - Carousel - Takes up 2 columns */}
+            {/* Left Column - Carousel */}
             <div className="md:col-span-2">
               <Carousel images={carouselImages} />
             </div>
@@ -88,12 +63,16 @@ export default function Home() {
               <h2 className="text-5xl md:text-6xl font-bold text-foreground">
                 JOIN US FOR<br />SERVICE
               </h2>
-              <p className="text-lg text-foreground/90">
-                Whether you're from Santa Ana CA or across the globe, we invite you to experience 
-                what God has in store for you during a service at TC Church! There's a place meant 
-                just for you. Check out our in-person and online service experiences every Sunday 
-                at 9 AM, 11:00 AM & 5:00 PM.
-              </p>
+              <div className="text-lg text-foreground/90">
+                <p className="mb-4">
+                  Whether you're from Santa Ana CA or across the globe, we invite you to experience 
+                  what God has in store for you during a service at TC Church!
+                </p>
+                <div className="font-semibold">
+                  Join us every Sunday at:<br />
+                  9:00 AM, 11:00 AM & 5:00 PM
+                </div>
+              </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/visit"
