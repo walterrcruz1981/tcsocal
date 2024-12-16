@@ -118,7 +118,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md text-foreground"
+            className="md:hidden p-2 rounded-md text-white"
           >
             <span className="sr-only">Open menu</span>
             <svg
