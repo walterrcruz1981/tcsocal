@@ -14,7 +14,7 @@ const previousMessages = [
   {
     id: "80VZQ5SnYCk",
     title: "Templo Calvario Santa Ana | Sunday Service | 12.31.23",
-    thumbnail: "https://i.ytimg.com/vi/80VZQ5SnYCk/maxresdefault.jpg",
+    thumbnail: "https://i.ytimg.com/vi/80VZQ5SnYCk.jpg",
     pastor: "Dr. Daniel de León",
     date: "December 31, 2023"
   },

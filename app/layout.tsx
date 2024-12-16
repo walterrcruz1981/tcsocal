@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "TC SoCal - Templo Calvario",
-  description: "Ministering to the needs of the people",
+  description: "For more than 80 years, TC has been ministering to the needs of the people and now more than ever before God is working through TC to turn hearts back to God, one another, and the City! Our greatest joy is seeing hearts transformed, marriages restored, families healed, addicts set free, and lives made new! Every Sunday at TC is Freedom Sunday because the heart revolution is not a one-time event but a movement and a way of life. Join us and join the heart revolution!",
 };
 
 export default function RootLayout({
@@ -28,6 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <link
+        rel="icon"
+        href="favicon.ico"
+        type="image/webp"
+        sizes="16x16"
+      />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
         <ThemeProvider>
           <ThemeToggle />

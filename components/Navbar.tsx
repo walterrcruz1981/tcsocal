@@ -29,6 +29,17 @@ const Navbar = () => {
     return item.subItems?.some(subItem => pathname === subItem.href)
   }
 
+  // Updated helper to check if link is active
+  const isLinkActive = (href: string) => {
+    if (href === '/') {
+      return pathname === href
+    }
+    // Remove trailing slashes and hash for comparison
+    const cleanPath = pathname.replace(/\/$/, '').split('#')[0]
+    const cleanHref = href.replace(/\/$/, '').split('#')[0]
+    return cleanPath.startsWith(cleanHref)
+  }
+
   return (
     <header className="fixed top-0 w-full shadow-md z-50 bg-[#1a1a1a] text-white">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,50 +64,52 @@ const Navbar = () => {
                   // Button for items with sublinks
                   <button 
                     onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                    className={`text-white hover:text-red-500 text-sm font-semibold transition-colors flex items-center gap-1 relative
-                      ${(pathname === item.href || isSubPathActive(item)) ? 'after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-0.5 after:bg-red-500' : ''}`}
+                    className={`hover:text-red-500 text-sm font-semibold transition-colors flex items-center gap-1
+                      ${(isLinkActive(item.href) || isSubPathActive(item)) ? 'text-red-500' : 'text-white'}`}
+                  >
+                    {item.label}
+                    <svg 
+                      className={`w-4 h-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
                     >
-                      {item.label}
-                      <svg 
-                        className={`w-4 h-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`}
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                  ) : (
-                    // Regular link for items without sublinks
-                    <Link 
-                      href={item.href}
-                      className={`text-white hover:text-red-500 text-sm font-semibold transition-colors relative
-                        ${pathname === item.href ? 'after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-0.5 after:bg-red-500' : ''}`}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                ) : (
+                  // Regular link for items without sublinks
+                  <Link 
+                    href={item.href}
+                    className={`hover:text-red-500 text-sm font-semibold transition-colors
+                      ${isLinkActive(item.href) ? 'text-red-500' : 'text-white'}`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
 
-                  {/* Dropdown menu */}
-                  {item.subItems && openDropdown === item.label && (
-                    <div className="absolute left-0 mt-2 w-48 bg-[#1a1a1a] shadow-lg rounded-md">
-                      {item.subItems.map((subItem) => (
-                        <Link
-                          key={subItem.label}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]"
-                          onClick={() => setOpenDropdown(null)}
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                {/* Dropdown menu */}
+                {item.subItems && openDropdown === item.label && (
+                  <div className="absolute left-0 mt-2 w-48 bg-[#1a1a1a] shadow-lg rounded-md">
+                    {item.subItems.map((subItem) => (
+                      <Link
+                        key={subItem.label}
+                        href={subItem.href}
+                        className={`block px-4 py-2 text-sm hover:bg-[#2a2a2a]
+                          ${pathname === subItem.href ? 'text-red-500 bg-[#2a2a2a]' : 'text-white'}`}
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {subItem.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <Link
               href="/livestream"
-              className="bg-red-600 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-red-700 transition-colors"
+              className={`bg-red-600 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-red-700 transition-colors
+                ${isLinkActive('/livestream') ? 'bg-red-700' : ''}`}
             >
               Watch Livestream
             </Link>
@@ -131,7 +144,7 @@ const Navbar = () => {
                 <Link
                   href={item.href}
                   className={`block px-4 py-2 text-white hover:bg-[#2a2a2a]
-                    ${pathname === item.href ? 'border-l-2 border-red-500 bg-[#2a2a2a]' : ''}`}
+                    ${pathname === item.href ? 'text-red-500' : ''}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -141,7 +154,7 @@ const Navbar = () => {
                     key={subItem.label}
                     href={subItem.href}
                     className={`block pl-8 py-2 text-gray-300 hover:bg-[#2a2a2a]
-                      ${pathname === subItem.href ? 'border-l-2 border-red-500 bg-[#2a2a2a]' : ''}`}
+                      ${pathname === subItem.href ? 'text-red-500' : ''}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {subItem.label}

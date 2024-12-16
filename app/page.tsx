@@ -65,7 +65,7 @@ export default function Home() {
               </h2>
               <div className="text-lg text-foreground/90">
                 <p className="mb-4">
-                  Whether you're from Santa Ana CA or across the globe, we invite you to experience 
+                  Whether you&apos;re from Santa Ana CA or across the globe, we invite you to experience 
                   what God has in store for you during a service at TC Church!
                 </p>
                 <div className="font-semibold">

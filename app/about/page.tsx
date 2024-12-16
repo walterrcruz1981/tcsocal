@@ -13,6 +13,7 @@ export default function About() {
           src="/carousel-lowerstage.webp"
           alt="About Background"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover"
           priority
         />
@@ -24,7 +25,7 @@ export default function About() {
             <h2 className="text-white text-5xl font-bold mb-4 text-left">ABOUT</h2>
             <div className="text-outline text-left">
               <h2 className="text-white text-7xl md:text-9xl font-bold tracking-wider">
-                TEMPLO <br />CALVARIO
+                TEMPLO <br /> CALVARIO
               </h2>
             </div>
           </div>
@@ -47,7 +48,7 @@ export default function About() {
               </div>
               <div className="mt-8">
                 <p className="text-lg text-foreground/90 leading-relaxed mb-6">
-                  That's right. Make no doubt about it. That is exactly what is taking place at TC. 
+                  That&apos;s right. Make no doubt about it. That is exactly what is taking place at TC. 
                   God is turning the hearts of youth and families back to God and back to one another. 
                   For more than 80 years, TC has been ministering to the needs of the people and now 
                   more than ever before God is working through TC to turn hearts back to God, one another, 
@@ -68,6 +69,7 @@ export default function About() {
                 src="/about/heart-revolution.webp"
                 alt="Heart Revolution"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
                 priority
               />
@@ -83,6 +85,7 @@ export default function About() {
           src="/carousel-lowerstage.webp"
           alt="Vision Background"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  
           className="object-cover opacity-30"
           priority
         />
@@ -110,7 +113,7 @@ export default function About() {
                 </p>
                 <p className="flex gap-2">
                   <span className="text-red-500">•</span>
-                  <span>Teach believers to apply God's Word to their lives. <span className="text-gray-400">Matt. 28:18-20</span></span>
+                  <span>Teach believers to apply God&apos;s Word to their lives. <span className="text-gray-400">Matt. 28:18-20</span></span>
                 </p>
                 <p className="flex gap-2">
                   <span className="text-red-500">•</span>
@@ -136,7 +139,7 @@ export default function About() {
                 Templo Calvario exists to evangelize the lost, train new believers and commission 
                 them to do work in ministry. Templo Calvario dares to be different from many other 
                 churches that our vision is to equip our church to reproduce itself, therefore, 
-                meet the "Great Commission".
+                meet the &quot;Great Commission&quot;.
               </p>
             </div>
           </div>
@@ -175,6 +178,7 @@ export default function About() {
                 src="/pastors/senior-pastor.webp"
                 alt="Dr. Daniel de León"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  
                 className="object-cover"
                 priority
               />
@@ -200,6 +204,7 @@ export default function About() {
                     src={pastor.image}
                     alt={pastor.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {/* Overlay on hover */}
