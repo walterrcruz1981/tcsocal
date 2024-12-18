@@ -3,26 +3,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { navItems } from '@/data/navigation'
 
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const pathname = usePathname()
-
-  const navItems = [
-    { label: 'HOME', href: '/' },
-    { label: 'ABOUT', href: '/about' },
-    { label: 'LATEST MESSAGE', href: '/latest-message' },
-    {
-      label: 'CONNECT',
-      href: '/connect/#connect',
-      subItems: [
-        { label: 'CELEBRATE RECOVERY', href: '/connect/celebrate-recovery' }
-      ]
-    },
-    { label: 'UPCOMING EVENTS', href: '/events' },
-    { label: 'VISIT US', href: '/visit' }
-  ]
 
   // Helper to check if current path is in subItems
   const isSubPathActive = (item: typeof navItems[0]) => {
@@ -41,7 +27,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className="fixed top-0 w-full shadow-md z-50 bg-[#1a1a1a] text-white">
+    <header className="fixed top-0 w-full shadow-md z-50 bg-[#1a242e] text-white">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -61,55 +47,64 @@ const Navbar = () => {
             {navItems.map((item) => (
               <div key={item.label} className="relative">
                 {item.subItems ? (
-                  // Button for items with sublinks
-                  <button 
-                    onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                    className={`hover:text-red-500 text-sm font-semibold transition-colors flex items-center gap-1
-                      ${(isLinkActive(item.href) || isSubPathActive(item)) ? 'text-red-500' : 'text-white'}`}
-                  >
-                    {item.label}
-                    <svg 
-                      className={`w-4 h-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`}
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
+                  <div className="relative">
+                    <Link 
+                      href={item.href}
+                      className={`hover:text-blue-500 text-sm font-semibold transition-colors
+                        ${(isLinkActive(item.href) || isSubPathActive(item)) ? 'text-blue-500' : 'text-white'}`}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+                      <span className="flex items-center gap-1">
+                        {item.label}
+                        <button 
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setOpenDropdown(openDropdown === item.label ? null : item.label)
+                          }}
+                          className="p-1"
+                        >
+                          <svg 
+                            className={`w-4 h-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                      </span>
+                    </Link>
+                    {/* Dropdown menu */}
+                    {item.subItems && openDropdown === item.label && (
+                      <div className="absolute left-0 mt-2 w-48 bg-[#1a242e] shadow-lg rounded-md">
+                        {item.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            href={subItem.href}
+                            className={`block px-4 py-2 text-sm hover:bg-[#2a2a2a]
+                              ${pathname === subItem.href ? 'text-blue-500 bg-[#2a2a2a]' : 'text-white'}`}
+                            onClick={() => setOpenDropdown(null)}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ) : (
-                  // Regular link for items without sublinks
                   <Link 
                     href={item.href}
-                    className={`hover:text-red-500 text-sm font-semibold transition-colors
-                      ${isLinkActive(item.href) ? 'text-red-500' : 'text-white'}`}
+                    className={`hover:text-blue-500 text-sm font-semibold transition-colors
+                      ${isLinkActive(item.href) ? 'text-blue-500' : 'text-white'}`}
                   >
                     {item.label}
                   </Link>
                 )}
-
-                {/* Dropdown menu */}
-                {item.subItems && openDropdown === item.label && (
-                  <div className="absolute left-0 mt-2 w-48 bg-[#1a1a1a] shadow-lg rounded-md">
-                    {item.subItems.map((subItem) => (
-                      <Link
-                        key={subItem.label}
-                        href={subItem.href}
-                        className={`block px-4 py-2 text-sm hover:bg-[#2a2a2a]
-                          ${pathname === subItem.href ? 'text-red-500 bg-[#2a2a2a]' : 'text-white'}`}
-                        onClick={() => setOpenDropdown(null)}
-                      >
-                        {subItem.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
               </div>
             ))}
             <Link
-              href="/livestream"
-              className={`bg-red-600 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-red-700 transition-colors
-                ${isLinkActive('/livestream') ? 'bg-red-700' : ''}`}
+              href="https://tcsocalonline.online.church/"
+              className={`bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-blue-700 transition-colors
+                ${isLinkActive('/livestream') ? 'bg-blue-700' : ''}`}
             >
               Watch Livestream
             </Link>
@@ -144,7 +139,7 @@ const Navbar = () => {
                 <Link
                   href={item.href}
                   className={`block px-4 py-2 text-white hover:bg-[#2a2a2a]
-                    ${pathname === item.href ? 'text-red-500' : ''}`}
+                    ${pathname === item.href ? 'text-blue-500' : ''}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -154,7 +149,7 @@ const Navbar = () => {
                     key={subItem.label}
                     href={subItem.href}
                     className={`block pl-8 py-2 text-gray-300 hover:bg-[#2a2a2a]
-                      ${pathname === subItem.href ? 'text-red-500' : ''}`}
+                      ${pathname === subItem.href ? 'text-blue-500' : ''}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {subItem.label}
@@ -164,7 +159,7 @@ const Navbar = () => {
             ))}
             <Link
               href="/livestream"
-              className="block px-4 py-2 mt-2 bg-red-600 text-white hover:bg-red-700"
+              className="block px-4 py-2 mt-2 bg-blue-600 text-white hover:bg-blue-700"
               onClick={() => setIsOpen(false)}
             >
               Watch Livestream
@@ -174,6 +169,4 @@ const Navbar = () => {
       </nav>
     </header>
   )
-}
-
-export default Navbar 
+} 

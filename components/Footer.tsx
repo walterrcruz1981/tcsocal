@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { FacebookIcon, VimeoIcon } from './Icons'
+import { FacebookIcon, InstagramIcon } from './Icons'
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1a1a1a] text-white">
+    <footer className="bg-[#1a242e] text-white">
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Mission Statement */}
         <div className="text-center mb-16">
@@ -28,8 +28,8 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">ABOUT</h4>
             <ul className="space-y-2">
-              <li><Link href="/about" className="hover:text-gray-300 transition-colors">Our Story</Link></li>
-              <li><Link href="/about/leadership" className="hover:text-gray-300 transition-colors">Leadership</Link></li>
+              <li><Link href="/our-story" className="hover:text-gray-300 transition-colors">Our Story</Link></li>
+              <li><Link href="/about" className="hover:text-gray-300 transition-colors">Leadership</Link></li>
               <li><Link href="/beliefs" className="hover:text-gray-300 transition-colors">What We Believe</Link></li>
             </ul>
           </div>
@@ -44,7 +44,7 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">RESOURCES</h4>
             <ul className="space-y-2">
-              <li><Link href="/messages" className="hover:text-gray-300 transition-colors">Messages</Link></li>
+              <li><Link href="/latest-message" className="hover:text-gray-300 transition-colors">Messages</Link></li>
               <li><Link href="/events" className="hover:text-gray-300 transition-colors">Events</Link></li>
               <li><Link href="/give" className="hover:text-gray-300 transition-colors">Give</Link></li>
             </ul>
@@ -67,15 +67,15 @@ const Footer = () => {
                 rel="noopener noreferrer" 
                 className="hover:text-gray-300 transition-colors flex items-center gap-2"
               >
-                <VimeoIcon className="w-5 h-5" />
-                Vimeo
+                <InstagramIcon className="w-5 h-5" />
+                Instagram
               </a>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="text-center text-sm border-t border-gray-800 pt-8">
+        <div className="text-center text-sm border-t border-[#2a3441] pt-8">
           <p>Copyright © {new Date().getFullYear()} TC SoCal. All rights reserved.</p>
         </div>
       </div>

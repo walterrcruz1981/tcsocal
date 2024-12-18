@@ -18,7 +18,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     <div className="relative py-7">
       <input
         type="text"
-        placeholder="Search events..."
+        placeholder="Search Events..."
         value={searchTerm}
         onChange={handleSearch}
         className="w-full px-4 py-3 rounded-lg bg-card-bg text-foreground border border-gray-700 focus:outline-none focus:border-red-500"

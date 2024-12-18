@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import PageTransition from '@/components/PageTransition'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,9 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeToggle />
           <Navbar />
-          <main className="pt-20">{children}</main>
+          <PageTransition>
+            <main className="pt-20">{children}</main>
+          </PageTransition>
           <Footer />
         </ThemeProvider>
       </body>

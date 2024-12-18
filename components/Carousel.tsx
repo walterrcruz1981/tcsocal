@@ -70,7 +70,7 @@ export default function Carousel({ images }: CarouselProps) {
 
   return (
     <div 
-      className="relative aspect-[16/9] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing"
+      className="relative aspect-[16/11] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing"
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
@@ -86,6 +86,7 @@ export default function Carousel({ images }: CarouselProps) {
             src={image.src}
             alt={image.alt}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
             priority={index === 0}
             draggable="false"

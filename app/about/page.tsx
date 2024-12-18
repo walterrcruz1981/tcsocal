@@ -1,41 +1,33 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { pastoralTeam } from '@/data/pastoralTeam'
+import ParallaxHero from '@/components/ParallaxHero'
 
 export default function About() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] bg-[#1a1a1a]">
-        {/* Background Image */}
-        <Image
-          src="/carousel-lowerstage.webp"
-          alt="About Background"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/70" />
-
-        {/* Content */}
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-white text-5xl font-bold mb-4 text-left">ABOUT</h2>
-            <div className="text-outline text-left">
-              <h2 className="text-white text-7xl md:text-9xl font-bold tracking-wider">
-                TEMPLO <br /> CALVARIO
-              </h2>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ParallaxHero 
+        title="ABOUT"
+        subtitle="TEMPLO CALVARIO"
+        imageSrc="/carousel-lowerstage.webp"
+      />
 
       {/* Mission Content */}
       <section className="py-24 section-primary">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16">
+            {/* Right Column - Image */}
+            <div className="relative rounded-lg overflow-hidden">
+              <Image
+                src="/about/heart-revolution.webp"
+                alt="Heart Revolution"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+                priority
+              />
+            </div>
             {/* Left Column - Content */}
             <div>
               <h2 className="text-5xl font-bold mb-6 text-foreground">
@@ -61,18 +53,6 @@ export default function About() {
                   Join us and join the heart revolution!
                 </p>
               </div>
-            </div>
-
-            {/* Right Column - Image */}
-            <div className="relative rounded-lg overflow-hidden">
-              <Image
-                src="/about/heart-revolution.webp"
-                alt="Heart Revolution"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover"
-                priority
-              />
             </div>
           </div>
         </div>

@@ -1,13 +1,14 @@
-import PageHeader from '@/components/PageHeader'
 import EventsGrid from '@/components/EventsGrid'
+import ParallaxHero from '@/components/ParallaxHero'
 import { events } from '../../data/events'
 
 export default function Events() {
   return (
     <div className="min-h-screen">
-      <PageHeader 
+      <ParallaxHero 
         title="UPCOMING EVENTS"
-        backgroundImage="/events/events-hero.webp"
+        subtitle="Join us for our upcoming events and activities"
+        imageSrc="/events/events-hero.webp"
       />
       
       <section className="py-16 section-primary">
