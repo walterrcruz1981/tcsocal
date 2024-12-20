@@ -1,4 +1,4 @@
-import ParallaxHero from '../../components/ParallaxHero'
+import ParallaxHero from '@/components/ParallaxHero'
 
 const visionPillars = [
   {

@@ -1,11 +1,12 @@
 'use client'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
+const defaultImage = '/pattern1.jpg'
 
 interface ParallaxHeroProps {
   title: string
   subtitle: string
-  imageSrc: string
+  imageSrc?: string
   heroContent?: React.ReactNode
 }
 
@@ -25,7 +26,7 @@ export default function ParallaxHero({
         style={{ y }}
       >
         <Image
-          src={imageSrc}
+          src={imageSrc || defaultImage}
           alt={title}
           fill
           className="object-cover scale-110"
@@ -45,7 +46,7 @@ export default function ParallaxHero({
               {title}
             </h1>
             {subtitle && (
-              <p className="text-white/90 text-7xl max-w-2xl mx-auto">
+              <p className="text-white/90 text-2xl md:text-4xl max-w-2xl mx-auto">
                 {subtitle}
               </p>
             )}

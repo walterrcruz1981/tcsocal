@@ -1,35 +1,37 @@
 'use client'
 import { useState, useEffect } from 'react'
+import ImpactSlide from './ImpactSlide'
 
-interface CarouselProps {
-  items: {
-    id: string | number
-    content: React.ReactNode
-  }[]
-  interval?: number
+interface ImpactArea {
+  title: string
+  description: string
+  backgroundImage: string
 }
 
-export default function ImpactCarousel({ items, interval = 6000 }: CarouselProps) {
+interface ImpactCarouselProps {
+  areas: ImpactArea[]
+}
+
+export default function ImpactCarousel({ areas }: ImpactCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((current) => (current + 1) % items.length)
-    }, interval)
+      setCurrentIndex((current) => (current + 1) % areas.length)
+    }, 6000)
     return () => clearInterval(timer)
-  }, [items.length, interval])
+  }, [areas.length])
 
   return (
     <div className="relative">
       <div className="overflow-hidden h-[40vh]">
         <div className="max-w-4xl mx-auto h-full">
-          {items[currentIndex].content}
+          <ImpactSlide {...areas[currentIndex]} />
         </div>
       </div>
       
-      {/* Indicators */}
       <div className="flex justify-center gap-2 mt-6">
-        {items.map((_, index) => (
+        {areas.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
