@@ -153,13 +153,14 @@ export default function About() {
 
           {/* Full Width Image */}
           <div className="mt-16">
-            <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden">
+            <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden">
               <Image
-                src="/pastors/senior-pastor.webp"
+                src="/pastors/meetDdleon.webp"
                 alt="Dr. Daniel de León"
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                className="object-cover object-center"
+                quality={100}
                 priority
               />
             </div>
