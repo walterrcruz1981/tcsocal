@@ -23,7 +23,7 @@ export default function EventsGrid({ initialEvents }: EventsGridProps) {
     <>
       <SearchBar onSearch={handleSearch} />
       {filteredEvents.length > 0 ? (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
           {filteredEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}

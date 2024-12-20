@@ -11,7 +11,7 @@ export default function GiveButton() {
         href="https://pushpay.com/g/temploinc"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition group"
+        className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition group"
       >
         <span className="flex items-center gap-2">
           Give Now

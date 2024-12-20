@@ -109,7 +109,7 @@ export default function Home() {
               <div className="flex gap-4">
                 <Link
                   href="/latest-message"
-                  className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition"
+                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition"
                 >
                   Watch More Messages
                 </Link>
@@ -125,7 +125,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
             UPCOMING EVENTS
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {upcomingEvents.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
@@ -133,7 +133,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               href="/events"
-              className="inline-block bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition"
+              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition"
             >
               View All Events
             </Link>

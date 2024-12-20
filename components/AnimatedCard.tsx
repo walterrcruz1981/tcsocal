@@ -1,27 +1,44 @@
 'use client'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 interface AnimatedCardProps {
-  index?: number
   title: string
   description: string
-  showNumber?: boolean
+  backgroundImage?: string
+  className?: string
+  children?: React.ReactNode
 }
 
-export default function AnimatedCard({ index = 0, title, description, showNumber = true }: AnimatedCardProps) {
+export default function AnimatedCard({ 
+  title, 
+  description, 
+  backgroundImage,
+  className = "",
+  children
+}: AnimatedCardProps) {
   return (
-    <motion.div
-      className="bg-card-bg p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
+    <div
+      className={`relative bg-card-bg rounded-xl shadow-xl dark:shadow-2xl dark:shadow-blue-500/10 overflow-hidden w-full ${className}`}
     >
-      <div className="flex items-center gap-4 mb-4">
-        {showNumber && <span className="text-3xl text-red-500">0{index + 1}</span>}
-        <h4 className="text-xl font-bold text-foreground">{title}</h4>
+      {backgroundImage && (
+        <div className="absolute inset-0">
+          <Image
+            src={backgroundImage}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+        </div>
+      )}
+      <div className="relative z-10 h-full flex flex-col justify-end p-8">
+        <div className="text-center text-foreground">
+          <h4 className="text-2xl font-bold mb-4">{title}</h4>
+          <p className="text-foreground/90 text-lg">{description}</p>
+          {children}
+        </div>
       </div>
-      <p className="text-foreground/90">{description}</p>
-    </motion.div>
+    </div>
   )
 } 
