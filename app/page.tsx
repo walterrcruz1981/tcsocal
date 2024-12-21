@@ -75,19 +75,18 @@ export default function Home() {
       </section>
 
       {/* Latest Message Section */}
-      <section className="section-primary py-16">
+      <section className="section-primary  py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
             LATEST MESSAGE
           </h2>
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-8 gap-12 items-center">
             {/* Video Player */}
-            <div>
+            <div className='col-span-6 rounded-lg'>
               <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                 <iframe 
                   src={`https://player.vimeo.com/video/${latestMessage.id}?badge=0&autopause=0&player_id=0&app_id=58479`}
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                  frameBorder="0"
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"                  frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
                   title={latestMessage.title}
                 />
@@ -96,7 +95,7 @@ export default function Home() {
             </div>
 
             {/* Message Details */}
-            <div className="space-y-6">
+            <div className="col-span-2 space-y-6">
               <h3 className="text-2xl font-bold text-foreground">
                 {latestMessage.title}
               </h3>

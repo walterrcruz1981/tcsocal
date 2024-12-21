@@ -39,12 +39,14 @@ export default function EventCard({ event }: EventCardProps) {
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold">{event.title}</h2>
+          <h2 className="text-2xl font-bold text-blue-500">{event.title}</h2>
           <div className="relative aspect-video rounded-lg overflow-hidden">
             <Image
               src={event.imageUrl ?? '/placeholder.webp'}
               alt={event.title ?? 'Event Image'}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+
               className="object-cover"
             />
           </div>
@@ -53,8 +55,8 @@ export default function EventCard({ event }: EventCardProps) {
             <p>{event.date}</p>
             <p>{event.time}</p>
           </div>
-          <p className="text-gray-600">{event.location}</p>
-          <div className="prose max-w-none">
+          <p className="text-gray-800">{event.location}</p>
+          <div className="prose max-w-none text-blue-500">
             {event.description}
           </div>
         </div>

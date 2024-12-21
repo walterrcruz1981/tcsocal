@@ -20,7 +20,7 @@ export default function ParallaxHero({
   const y = useTransform(scrollY, [0, 500], [0, 150])
 
   return (
-    <section className="relative h-[70vh] overflow-hidden">
+    <section className="relative h-[60vh] overflow-hidden">
       <motion.div 
         className="absolute inset-0"
         style={{ y }}
@@ -29,7 +29,7 @@ export default function ParallaxHero({
           src={imageSrc || defaultImage}
           alt={title}
           fill
-          className="object-cover scale-110"
+          className="object-cover scale-100"
           priority
         />
       </motion.div>
