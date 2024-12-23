@@ -1,11 +1,12 @@
 export interface Message {
-  id: string
-  title: string
-  pastor: string
-  date: string
-  description: string
+  name: string,
+  description: string,
+  player_embed_url: string,
+  created_time: string,
+  resource_key: string,
+  link: string
 }
 
-export interface PreviousMessage extends Message {
-  thumbnail: string
-} 
+export interface VimeoResponse {
+  data: Message[];
+}

@@ -3,13 +3,14 @@ import Link from 'next/link'
 import { events } from '@/data/events'
 import EventCard from '../components/EventCard'
 import Carousel from '../components/Carousel'
-import { latestMessage } from '@/data/messages'
+import { vimeoMessages} from '@/data/messages'
 import ParallaxHero from '@/components/ParallaxHero'
 import { carouselImages } from '@/data/carousel'
 
-export default function Home() {
-  const upcomingEvents = events.slice(0, 3)
-  
+export default async function Home() {
+  const upcomingEvents = events.slice(0, 2)
+   const vimeo = await vimeoMessages();
+   const {name, description, player_embed_url, created_time} = vimeo.data[1];
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -85,10 +86,10 @@ export default function Home() {
             <div className='col-span-6 rounded-lg'>
               <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                 <iframe 
-                  src={`https://player.vimeo.com/video/${latestMessage.id}?badge=0&autopause=0&player_id=0&app_id=58479`}
+                  src={`${player_embed_url}?badge=0&autopause=0&player_id=0&app_id=58479`}
                   className="absolute top-0 left-0 w-full h-full rounded-xl"                  frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                  title={latestMessage.title}
+                  title={name}
                 />
               </div>
               <script src="https://player.vimeo.com/api/player.js" async />
@@ -97,13 +98,13 @@ export default function Home() {
             {/* Message Details */}
             <div className="col-span-2 space-y-6">
               <h3 className="text-2xl font-bold text-foreground">
-                {latestMessage.title}
+                {name}
               </h3>
               <p className="text-foreground/90">
-                {latestMessage.pastor} • {latestMessage.date}
+               Created On: {created_time}
               </p>
               <p className="text-foreground/90">
-                {latestMessage.description}
+                {description}
               </p>
               <div className="flex gap-4">
                 <Link
