@@ -1,8 +1,11 @@
 import ParallaxHero from '@/components/ParallaxHero'
 import PreviousMessages from '@/components/PreviousMessages'
-import { latestMessage, previousMessages } from '@/data/messages'
+import { vimeoMessages } from '@/data/messages'
 
-export default function LatestMessage() {
+export default async function LatestMessage() {
+
+  const vimeo = await vimeoMessages(); // 
+  const { name, description, player_embed_url, created_time } = vimeo.data[1];
   return (
     <>
       <ParallaxHero 
@@ -20,11 +23,11 @@ export default function LatestMessage() {
               <div className="mb-8">
                 <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                   <iframe 
-                    src={`https://player.vimeo.com/video/${latestMessage.id}?badge=0&autopause=0&player_id=0&app_id=58479`}
+                    src={`${player_embed_url}?h=31472a8d92?h=1026f4b66c?badge=0&autopause=0&player_id=0&app_id=58479`}
                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                    title={latestMessage.title}
+                    title={name}
                   />
                 </div>
                 <script src="https://player.vimeo.com/api/player.js" async />
@@ -32,18 +35,17 @@ export default function LatestMessage() {
 
               {/* Message Details */}
               <div className="border-b border-gray-200 dark:border-gray-800 pb-8">
-                <h2 className="text-3xl font-bold mb-4 text-foreground">{latestMessage.title}</h2>
+                <h2 className="text-3xl font-bold mb-4 text-foreground">{name}</h2>
                 <div className="flex items-center gap-4 text-foreground/90 mb-6">
-                  <span>{latestMessage.pastor}</span>
-                  <span>•</span>
-                  <span>{latestMessage.date}</span>
+
+                  <span>{created_time}</span>
                 </div>
-                <p className="text-foreground/90 text-lg">{latestMessage.description}</p>
+                <p className="text-foreground/90 text-lg">{description}</p>
               </div>
             </div>
 
             {/* Previous Messages Grid */}
-            <PreviousMessages messages={previousMessages} />
+            <PreviousMessages messages={vimeo.data} />
           </div>
         </section>
       </div>
