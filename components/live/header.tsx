@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 
 export function Header() {
   return (
@@ -18,4 +16,3 @@ export function Header() {
     </header>
   )
 }
-

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Image from 'next/image'
 
 type Message = {
   id: string
@@ -78,7 +79,7 @@ export function Chat() {
           <div key={message.id} className="flex items-start gap-3">
             <div className={`w-8 h-8 rounded-full flex-shrink-0 ${message.user.avatar ? '' : getRandomColor()}`}>
               {message.user.avatar ? (
-                <img src={message.user.avatar} alt={message.user.name} className="w-full h-full rounded-full" />
+                <Image src={message.user.avatar} alt={message.user.name} className="w-full h-full rounded-full" />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-white font-bold">
                   {message.user.name[0]}

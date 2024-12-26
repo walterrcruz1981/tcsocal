@@ -1,9 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 
 export function Bible() {
-  const [bible, setBible] = useState('')
 
   return (
     <div className="p-1 h-full w-full flex flex-col ">

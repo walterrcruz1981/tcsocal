@@ -2,7 +2,6 @@ import { VideoPlayer } from '../../components/live/video-player'
 import { ChatContainer } from '../../components/live/chat-container'
 import { AboutChurch } from '../../components/live/about-church'
 import { EmojiBar } from '../../components/live/emoji-bar'
-import Footer from '@/components/Footer'
 
 export default function Live() {
     return(
