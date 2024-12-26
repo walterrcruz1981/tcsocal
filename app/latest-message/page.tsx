@@ -14,13 +14,13 @@ export default async function LatestMessage() {
         imageSrc="/hero-bg.webp"
       />
       
-      <div className="relative min-h-screen">
-        <section className="py-24 section-primary">
-          <div className="max-w-7xl mx-auto px-4">
+      <div className="relative min-h-screen -mt-32">
+        <section>
+          <div className="max-w-[1400px] mx-auto px-4">
             {/* Main Content */}
-            <div className="max-w-4xl mx-auto mb-24">
+            <div className="max-w-7xl mx-auto mb-24">
               {/* Video Player */}
-              <div className="mb-8">
+              <div className="mb-8 outline-dashed outline-2 outline-blue-500 rounded-lg overflow-hidden shadow-lg shadow-black/70 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-4s">
                 <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                   <iframe 
                     src={`${player_embed_url}?h=31472a8d92?h=1026f4b66c?badge=0&autopause=0&player_id=0&app_id=58479`}

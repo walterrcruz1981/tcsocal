@@ -33,3 +33,50 @@ export function InstagramIcon({ className = "w-6 h-6" }) {
     </svg>
   )
 } 
+
+export function BibleIcon({ className = "w-6 h-6" }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="2" width="18" height="20" rx="2" ry="2" fill="#f8f9fa" />
+      <path d="M3 2v20" stroke="#000" />
+      <path d="M21 2v20" stroke="#000" />
+      <line x1="12" y1="2" x2="12" y2="22" stroke="#000" />
+      <line x1="8" y1="8" x2="16" y2="8" stroke="#000" />
+      <line x1="8" y1="12" x2="16" y2="12" stroke="#000" />
+      <line x1="8" y1="16" x2="16" y2="16" stroke="#000" />
+      <path d="M10 2h4" stroke="#000" />
+    </svg>
+  );
+};
+
+
+export function NotesIcon({ className = "w-6 h-6" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="3" y="2" width="18" height="20" rx="2" ry="2" fill="#f8f9fa" />
+      <line x1="3" y1="6" x2="21" y2="6" stroke="#000" />
+      <line x1="3" y1="10" x2="21" y2="10" stroke="#000" />
+      <line x1="3" y1="14" x2="21" y2="14" stroke="#000" />
+      <line x1="3" y1="18" x2="21" y2="18" stroke="#000" />
+      <path d="M15 2v4h4" stroke="#000" />
+    </svg>
+  );
+};

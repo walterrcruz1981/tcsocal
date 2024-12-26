@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import FooterControl from "@/components/FooterControl";
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import { ThemeToggle } from '@/components/ThemeToggle'
-import PageTransition from '@/components/PageTransition'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,10 +32,8 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeToggle />
           <Navbar />
-          <PageTransition>
             <main className="pt-20">{children}</main>
-          </PageTransition>
-          <Footer />
+          <FooterControl />
         </ThemeProvider>
       </body>
     </html>

@@ -17,10 +17,10 @@ export default function ParallaxHero({
   heroContent 
 }: ParallaxHeroProps) {
   const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 150])
+  const y = useTransform(scrollY, [0, 800], [0, 150])
 
   return (
-    <section className="relative h-[60vh] overflow-hidden">
+    <section className="relative h-[80vh] overflow-hidden">
       <motion.div 
         className="absolute inset-0"
         style={{ y }}
