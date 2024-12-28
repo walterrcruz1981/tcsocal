@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { events } from '@/data/events'
-import EventCard from '../components/EventCard'
-import Carousel from '../components/Carousel'
+import EventCard from '../components/event/EventCard'
+import Carousel from '../components/slides/Carousel'
 import { vimeoMessages} from '@/data/messages'
-import ParallaxHero from '@/components/ParallaxHero'
+import ParallaxHero from '@/components/hero/ParallaxHero'
 import { carouselImages } from '@/data/carousel'
 
 export default async function Home() {
@@ -58,13 +58,13 @@ export default async function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/visit"
+                  href="/connect/visit"
                   className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition text-center"
                 >
                   JOIN IN PERSON
                 </Link>
                 <Link
-                  href="/livestream"
+                  href="/live"
                   className="inline-block bg-white text-black border-2 border-black px-8 py-3 rounded-lg hover:bg-gray-100 transition text-center"
                 >
                   JOIN ONLINE
@@ -101,7 +101,7 @@ export default async function Home() {
                 {name}
               </h3>
               <p className="text-foreground/90">
-               Created On: {created_time}
+              Streamed: {new Date(created_time).toLocaleTimeString([], {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
               </p>
               <p className="text-foreground/90">
                 {description}
@@ -132,7 +132,7 @@ export default async function Home() {
           </div>
           <div className="text-center mt-8">
             <Link
-              href="/events"
+              href="/connect/events"
               className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition"
             >
               View All Events

@@ -74,7 +74,7 @@ export default function CelebrateRecovery() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-8">
+                  <div className="p-6">
                     <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-red-500 transition-colors">
                       {resource.title}
                     </h3>
@@ -86,34 +86,11 @@ export default function CelebrateRecovery() {
                 </Link>
               ))}
             </div>
-
-            {/* Meeting Info */}
-            <div className="bg-card-bg rounded-xl p-12 text-center">
-              <h3 className="text-3xl font-bold mb-6 text-foreground">Join Us Every Friday</h3>
-              <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                <div className="p-4">
-                  <p className="text-xl font-bold text-red-500 mb-2">6:00 PM</p>
-                  <p className="text-foreground/80">Dinner</p>
-                </div>
-                <div className="p-4">
-                  <p className="text-xl font-bold text-red-500 mb-2">7:00 PM</p>
-                  <p className="text-foreground/80">Large Group</p>
-                </div>
-                <div className="p-4">
-                  <p className="text-xl font-bold text-red-500 mb-2">8:00 PM</p>
-                  <p className="text-foreground/80">Small Groups</p>
-                </div>
-                <div className="p-4">
-                  <p className="text-xl font-bold text-red-500 mb-2">9:00 PM</p>
-                  <p className="text-foreground/80">Solid Rock Café</p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
         {/* Contact Section */}
-        <section className="py-24 section-secondary">
+        <section className="py-24 bg-white/40 backdrop-blur-sm">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold mb-8 text-foreground">Need Support?</h2>
             <p className="text-xl mb-12 text-foreground/90">
@@ -121,17 +98,17 @@ export default function CelebrateRecovery() {
             </p>
             <div className="flex justify-center gap-6">
               <Link
-                href="/contact"
+                href="/visit"
                 className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition"
               >
                 Contact Us
               </Link>
-              <Link
-                href="/connect/celebrate-recovery/resources"
+              <a
+                href="https://linktr.ee/tcsocal"
                 className="bg-slate-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-700 transition"
               >
                 View Resources
-              </Link>
+              </a>
             </div>
           </div>
         </section>

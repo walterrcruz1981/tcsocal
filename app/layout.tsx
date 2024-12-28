@@ -1,11 +1,11 @@
+import { ClerkProvider} from '@clerk/nextjs'
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import FooterControl from "@/components/utils/FooterControl";
 import { ThemeProvider } from '@/contexts/ThemeContext'
-import { ThemeToggle } from '@/components/ThemeToggle'
-import PageTransition from '@/components/PageTransition'
+import { ThemeToggle } from '@/components/utils/ThemeToggle'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,17 +28,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground mt-[-85px]`}>
-        <ThemeProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground mt-[-115px]`}>
+
+        < ThemeProvider >
           <ThemeToggle />
           <Navbar />
-          <PageTransition>
             <main className="pt-20">{children}</main>
-          </PageTransition>
-          <Footer />
+          <FooterControl />
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
   );
 }

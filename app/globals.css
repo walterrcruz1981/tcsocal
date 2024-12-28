@@ -160,3 +160,7 @@ body {
 .hover\:bg-accent-hover:hover {
   background-color: var(--accent-hover);
 }
+
+.shadow-right {
+  box-shadow: 5px 0 1px 5px rgba(19, 175, 214, 0.5); /* Adjust the values as needed */
+}
