@@ -2,16 +2,18 @@ import { VideoPlayer } from '../../components/live/video-player'
 import { ChatContainer } from '../../components/live/chat-container'
 import { AboutChurch } from '../../components/live/about-church'
 import { EmojiBar } from '../../components/live/emoji-bar'
+import { auth } from '@clerk/nextjs/server'
 
-export default function Live() {
+export default async function Live() {
+  const { userId } = await auth();
     return(
-        <div className="w-[calc(80vw-2rem)] mt-28 bg-gradient-to-r from-gray-900/70 to-blue-600/80 mx-auto grid grid-cols-1 lg:grid-cols-[1fr_350px] p-4 gap-4 ">
+        <div className="max-w-[1600px] rounded-lg shadow-right  mt-28 bg-gradient-to-r from-[#1a242e] to-gray-900/80 mx-auto grid grid-cols-1 lg:grid-cols-[1fr_350px] p-4 gap-4 text-white ">
           <div className="space-y-4">
             <VideoPlayer />
             <EmojiBar />
             <AboutChurch />
           </div>
-          <ChatContainer />
+          <ChatContainer isLive={userId ? true : false} />
         </div>
      
     )

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import BeliefCard from '@/components/BeliefCard'
+import BeliefCard from '@/components/cards/BeliefCard'
 
 const beliefs = [
   {

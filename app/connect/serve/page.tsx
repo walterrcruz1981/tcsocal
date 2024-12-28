@@ -1,5 +1,5 @@
-import ServiceCard from '@/components/ServiceCard'
-import ParallaxHero from '@/components/ParallaxHero'
+import ServiceCard from '@/components/cards/ServiceCard'
+import ParallaxHero from '@/components/hero/ParallaxHero'
 
 const ministryAreas = [
   {

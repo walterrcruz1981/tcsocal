@@ -1,4 +1,4 @@
-import ParallaxHero from '@/components/ParallaxHero'
+import ParallaxHero from '@/components/hero/ParallaxHero'
 import PreviousMessages from '@/components/PreviousMessages'
 import { vimeoMessages } from '@/data/messages'
 
@@ -14,7 +14,7 @@ export default async function LatestMessage() {
         imageSrc="/hero-bg.webp"
       />
       
-      <div className="relative min-h-screen -mt-32">
+      <div className="relative min-h-screen -mt-32 mb-7">
         <section>
           <div className="max-w-[1400px] mx-auto px-4">
             {/* Main Content */}
@@ -37,8 +37,7 @@ export default async function LatestMessage() {
               <div className="border-b border-gray-200 dark:border-gray-800 pb-8">
                 <h2 className="text-3xl font-bold mb-4 text-foreground">{name}</h2>
                 <div className="flex items-center gap-4 text-foreground/90 mb-6">
-
-                  <span>{created_time}</span>
+                  <span>Streamed: {new Date(created_time).toLocaleTimeString([], {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
                 </div>
                 <p className="text-foreground/90 text-lg">{description}</p>
               </div>

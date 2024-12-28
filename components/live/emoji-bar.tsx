@@ -18,7 +18,7 @@ export function EmojiBar() {
     <>
       <EmojiOverlay ref={emojiOverlayRef} />
       <div className="flex items-center gap-2 py-2">
-        <span className="text-lg pl-4">Join us now for the worship experience!</span>
+        <span className="text-lg pl-4">TEMPLO CALVARIO WELCOMES YOU</span>
         <div className="flex gap-2 ml-auto text-lg">
           <button className="p-2 hover:bg-white/10 rounded-full">
             <ShareIcon className="w-5 h-5" />

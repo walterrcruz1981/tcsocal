@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import PageTransition from '@/components/PageTransition'
+import PageTransition from '@/components/utils/PageTransition'
 export default function Loading() {
     return (
         <PageTransition>

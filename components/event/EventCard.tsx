@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
-import Modal from './Modal'
+import Modal from '../utils/Modal'
 import type { Event } from '@/types/event'
 
 interface EventCardProps {

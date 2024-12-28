@@ -1,7 +1,7 @@
-import AnimatedCard from '@/components/AnimatedCard'
-import GiveButton from '@/components/GiveButton'
-import ParallaxHero from '@/components/ParallaxHero'
-import ServiceCard from '@/components/ServiceCard'
+import AnimatedCard from '@/components/cards/AnimatedCard'
+import GiveButton from '@/components/utils/GiveButton'
+import ParallaxHero from '@/components/hero/ParallaxHero'
+import ServiceCard from '@/components/cards/ServiceCard'
 
 const impactAreas = [
   {

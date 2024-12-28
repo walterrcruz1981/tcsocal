@@ -1,6 +1,6 @@
-import EventsGrid from '@/components/EventsGrid'
-import ParallaxHero from '@/components/ParallaxHero'
-import { events } from '../../data/events'
+import EventsGrid from '@/components/event/EventsGrid'
+import ParallaxHero from '@/components/hero/ParallaxHero'
+import { events } from '../../../data/events'
 
 export default function Events() {
   return (

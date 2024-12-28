@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import GroupCard from '@/components/GroupCard'
+import GroupCard from '@/components/cards/GroupCard'
 
 const groups = [
   {
@@ -78,7 +78,7 @@ export default async function GroupsPage() {
       
       <div className="relative min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-[40vh]">
+        <section className="relative h-[60vh]">
           <Image
             src="/groups/groups-hero.webp"
             alt="Small Groups"

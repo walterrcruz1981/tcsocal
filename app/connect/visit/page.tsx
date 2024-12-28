@@ -1,4 +1,4 @@
-import { FacebookIcon, VimeoIcon } from '../../components/Icons'
+import { FacebookIcon, VimeoIcon } from '../../../components/utils/Icons'
 
 const services = [
   {
@@ -43,7 +43,7 @@ export default function VisitUs() {
       {/* Content Container */}
       <div className="relative min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-[40vh]">
+        <section className="relative h-[60vh]">
           <div className="absolute inset-0 bg-black/60" />
           <div className="relative z-10 h-full flex items-center justify-center">
             <div className="max-w-7xl mx-auto px-4 text-center">

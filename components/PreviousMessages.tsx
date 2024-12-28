@@ -33,7 +33,7 @@ const PreviousMessages: React.FC<PreviousMessagesProps> = ({ messages }) => {
             <h3 className="text-xl font-bold text-foreground group-hover:text-blue-500 transition-colors">
               {message.name}
             </h3>
-            <p className="text-foreground/90">{message.created_time}</p>
+            <p className="text-foreground/90">Streamed: {new Date(message.created_time).toLocaleTimeString([], {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
           </Link>
         ))}
       </div>
