@@ -25,7 +25,7 @@ export function ThemeToggle() {
       >
         <div className="relative w-6 h-12 bg-black-400 ">
           <div 
-            className={`absolute w-[11px] h-6 ${isLight ? 'bg-purple-400' : 'bg-blue-400'} shadow-xl shadow-emerald-200 rounded-full 
+            className={`absolute w-[11px] h-6 ${isLight ? 'bg-purple-400' : 'bg-blue-400'} rounded-full 
               transform transition-transform duration-500 ease-in-out
               ${isDark ? 'translate-y-4' : 'translate-y-1'}`
             }

@@ -6,6 +6,7 @@ import Carousel from '../components/slides/Carousel'
 import { vimeoMessages} from '@/data/messages'
 import ParallaxHero from '@/components/hero/ParallaxHero'
 import { carouselImages } from '@/data/carousel'
+import ContactForm from '@/components/ContactForm'
 
 export default async function Home() {
   const upcomingEvents = events.slice(0, 2)
@@ -139,6 +140,7 @@ export default async function Home() {
             </Link>
           </div>
         </div>
+        <ContactForm /> 
       </section>
     </div>
   )
