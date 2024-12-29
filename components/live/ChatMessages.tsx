@@ -139,7 +139,9 @@ export default function ChatMessages() {
       </div>
 
       <div className="p-4 border-t border-gray-700">
+        <div className="flex justify-center max-sm:hidden">
         <EmojiPicker onEmojiClick={handleEmojiClick} />
+        </div>
         <form onSubmit={handleSendMessage} className="flex gap-2">
           <input
             type="text"
