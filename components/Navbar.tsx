@@ -343,18 +343,11 @@ export default function Navbar() {
                             </div>
                           </div>
                           <Link
-                            href="/dashboard"
+                            href="/users/dashboard"
                             className="block py-2 text-sm text-gray-300 hover:text-white"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             Dashboard
-                          </Link>
-                          <Link
-                            href="/settings"
-                            className="block py-2 text-sm text-gray-300 hover:text-white"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            Settings
                           </Link>
                           <SignOutButton>
                             <button className="w-full text-left py-2 text-sm text-red-500 hover:text-red-400">
