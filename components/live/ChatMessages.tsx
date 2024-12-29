@@ -13,11 +13,13 @@ export default function ChatMessages() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const { user } = useUser()
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null)
+  const messageIdsRef = useRef(new Set<string>())
 
   const loadMessages = useCallback(async () => {
     try {
       const data = await chatService.getMessages()
       if (data) {
+        data.forEach(msg => messageIdsRef.current.add(msg.id))
         setMessages(data)
         setTimeout(scrollToBottom, 100)
       }
@@ -40,8 +42,11 @@ export default function ChatMessages() {
         },
         (payload) => {
           const newMessage = payload.new as ChatMessage
-          setMessages((prev) => [...prev, newMessage])
-          setTimeout(scrollToBottom, 100)
+          if (!messageIdsRef.current.has(newMessage.id)) {
+            messageIdsRef.current.add(newMessage.id)
+            setMessages(prev => [...prev, newMessage])
+            setTimeout(scrollToBottom, 100)
+          }
         }
       )
 
@@ -79,6 +84,7 @@ export default function ChatMessages() {
       )
       
       if (result) {
+        messageIdsRef.current.add(result.id)
         setMessages(prev => [...prev, result])
         setTimeout(scrollToBottom, 100)
       }
