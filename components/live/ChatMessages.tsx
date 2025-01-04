@@ -82,7 +82,7 @@ export default function ChatMessages() {
         user.fullName || user.username || 'Anonymous',
         user.imageUrl
       )
-      
+
       if (result) {
         messageIdsRef.current.add(result.id)
         setMessages(prev => [...prev, result])
@@ -106,9 +106,8 @@ export default function ChatMessages() {
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`flex items-start gap-2 ${
-              message.user_id === user?.id ? 'flex-row-reverse' : ''
-            }`}
+            className={`flex items-start gap-2 ${message.user_id === user?.id ? 'flex-row-reverse' : ''
+              }`}
           >
             {message.user_image ? (
               <Image
@@ -124,11 +123,10 @@ export default function ChatMessages() {
               </div>
             )}
             <div
-              className={`max-w-[70%] rounded-lg p-3 ${
-                message.user_id === user?.id
+              className={`max-w-[70%] rounded-lg p-3 ${message.user_id === user?.id
                   ? 'bg-blue-500 text-white'
                   : 'bg-gray-700 text-white'
-              }`}
+                }`}
             >
               <p className="text-sm font-medium mb-1">{message.user_name}</p>
               <p>{message.message}</p>
@@ -140,7 +138,7 @@ export default function ChatMessages() {
 
       <div className="p-4 border-t border-gray-700">
         <div className="flex justify-center max-sm:hidden">
-        <EmojiPicker onEmojiClick={handleEmojiClick} />
+          <EmojiPicker onEmojiClick={handleEmojiClick} />
         </div>
         <form onSubmit={handleSendMessage} className="flex gap-2">
           <input

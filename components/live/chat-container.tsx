@@ -1,16 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import  ChatMessages  from './ChatMessages'
+import ChatMessages from './ChatMessages'
 import { Notes } from './notes'
 import { Bible } from './bible'
-import {MessageCircle, BookOpen,NotepadText} from 'lucide-react'
+import { MessageCircle, BookOpen, NotepadText } from 'lucide-react'
 
 export function ChatContainer() {
   const [activeTab, setActiveTab] = useState('chat')
 
   return (
-    <div className="font-italic overflow-hidden flex flex-col h-[calc(90vh-2rem)] rounded-lg shadow-md shadow-red-500/80 animate-pulseShadow">
+    <div className="font-italic overflow-hidden flex flex-col h-[calc(80vh-2rem)] rounded-lg shadow-md shadow-red-500/80 animate-pulseShadow">
       <div className="flex-grow overflow-y-auto">
         {activeTab === 'chat' && <ChatMessages />}
         {activeTab === 'notes' && <Notes />}

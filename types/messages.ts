@@ -4,9 +4,11 @@ export interface Message {
   player_embed_url: string,
   created_time: string,
   resource_key: string,
-  link: string
+  link: string,
+  id: string
 }
 
 export interface VimeoResponse {
   data: Message[];
 }
+

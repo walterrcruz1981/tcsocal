@@ -3,18 +3,18 @@ import Link from 'next/link'
 import { events } from '@/data/events'
 import EventCard from '../components/event/EventCard'
 import Carousel from '../components/slides/Carousel'
-import { vimeoMessages} from '@/data/messages'
+import { vimeoMessages } from '@/data/messages'
 import ParallaxHero from '@/components/hero/ParallaxHero'
 import { carouselImages } from '@/data/carousel'
 
 export default async function Home() {
   const upcomingEvents = events.slice(0, 2)
-   const vimeo = await vimeoMessages();
-   const {name, description, player_embed_url, created_time} = vimeo.data[1];
+  const vimeo = await vimeoMessages();
+  const { name, description, player_embed_url, created_time } = vimeo.data[1];
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <ParallaxHero 
+      <ParallaxHero
         title=""
         subtitle="WELCOMES YOU HOME"
         imageSrc="/hero-bg.webp"
@@ -48,7 +48,7 @@ export default async function Home() {
               </h2>
               <div className="text-lg text-foreground/90">
                 <p className="mb-4">
-                  Whether you&apos;re from Santa Ana CA or across the globe, we invite you to experience 
+                  Whether you&apos;re from Santa Ana CA or across the globe, we invite you to experience
                   what God has in store for you during a service at TC Church!
                 </p>
                 <div className="font-semibold">
@@ -82,18 +82,6 @@ export default async function Home() {
             LATEST MESSAGE
           </h2>
           <div className="grid lg:grid-cols-8 gap-12 items-center">
-            {/* Video Player */}
-            <div className='col-span-6 rounded-lg'>
-              <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-                <iframe 
-                  src={`${player_embed_url}?badge=0&autopause=0&player_id=0&app_id=58479`}
-                  className="absolute top-0 left-0 w-full h-full rounded-xl"                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                  title={name}
-                />
-              </div>
-              <script src="https://player.vimeo.com/api/player.js" async />
-            </div>
 
             {/* Message Details */}
             <div className="col-span-2 space-y-6">
@@ -101,7 +89,7 @@ export default async function Home() {
                 {name}
               </h3>
               <p className="text-foreground/90">
-              Streamed: {new Date(created_time).toLocaleTimeString([], {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                Streamed: {new Date(created_time).toDateString()}
               </p>
               <p className="text-foreground/90">
                 {description}
@@ -114,6 +102,18 @@ export default async function Home() {
                   Watch More Messages
                 </Link>
               </div>
+            </div>
+            {/* Video Player */}
+            <div className='col-span-6 rounded-lg'>
+              <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+                <iframe
+                  src={`${player_embed_url}?badge=0&autopause=0&player_id=0&app_id=58479`}
+                  className="absolute top-0 left-0 w-full h-full rounded-xl" frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                  title={name}
+                />
+              </div>
+              <script src="https://player.vimeo.com/api/player.js" async />
             </div>
           </div>
         </div>

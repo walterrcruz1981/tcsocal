@@ -37,7 +37,7 @@ export default async function LatestMessage() {
               <div className="border-b border-gray-200 dark:border-gray-800 pb-8">
                 <h2 className="text-3xl font-bold mb-4 text-foreground">{name}</h2>
                 <div className="flex items-center gap-4 text-foreground/90 mb-6">
-                  <span>Streamed: {new Date(created_time).toLocaleTimeString([], {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                  <span>Streamed: {new Date(created_time).toDateString()}</span>
                 </div>
                 <p className="text-foreground/90 text-lg">{description}</p>
               </div>

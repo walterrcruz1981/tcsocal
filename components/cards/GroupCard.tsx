@@ -10,7 +10,7 @@ interface GroupCardProps {
 
 export default function GroupCard({ title, description, details, image, schedule }: GroupCardProps) {
   return (
-    <div className="bg-card-bg rounded-xl overflow-hidden shadow-lg">
+    <div className="bg-card-bg rounded-xl hover:filter hover:saturate-150 transition-all duration-300 overflow-hidden shadow-lg">
       <div className="relative h-72">
         <Image
           src={image}

@@ -69,8 +69,8 @@ export default function Carousel({ images }: CarouselProps) {
   }
 
   return (
-    <div 
-      className="relative aspect-[16/11] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing"
+    <div
+      className="relative aspect-[16/11]  rounded-lg overflow-hidden cursor-grab active:cursor-grabbing"
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
