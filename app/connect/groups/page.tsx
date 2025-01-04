@@ -75,12 +75,12 @@ export default async function GroupsPage() {
   return (
     <>
       <div className="fixed top-0 left-0 w-full h-full bg-[url('/pattern1.jpg')] bg-center bg-no-repeat bg-cover -z-10" style={{ opacity: 1 }} />
-      
+
       <div className="relative min-h-screen">
         {/* Hero Section */}
         <section className="relative h-[60vh]">
           <Image
-            src="/groups/groups-hero.webp"
+            src="/groups/family.webp"
             alt="Small Groups"
             fill
             className="object-cover"
@@ -104,8 +104,8 @@ export default async function GroupsPage() {
           <div className="max-w-3xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-8 text-foreground">Our Vision for Groups</h2>
             <p className="text-lg text-foreground/90 mb-12">
-              Cell groups are the heart of our church&apos;s growth strategy. Through these intimate 
-              gatherings, we train, equip, and empower members to become leaders who can 
+              Cell groups are the heart of our church&apos;s growth strategy. Through these intimate
+              gatherings, we train, equip, and empower members to become leaders who can
               reproduce the vision of reaching our community for Christ.
             </p>
           </div>

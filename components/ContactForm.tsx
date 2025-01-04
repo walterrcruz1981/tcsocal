@@ -31,10 +31,10 @@ export default function ContactForm() {
       reset()
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to send message. Please try again.'
-      setToast({ 
-        title: 'Error', 
-        message: errorMessage, 
-        type: 'error' 
+      setToast({
+        title: 'Error',
+        message: errorMessage,
+        type: 'error'
       })
     } finally {
       setIsSubmitting(false)
@@ -45,7 +45,7 @@ export default function ContactForm() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
       className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl"
     >
       <h2 className="text-2xl font-bold mb-6 text-center">Contact Us</h2>

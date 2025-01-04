@@ -110,9 +110,8 @@ export default function Navbar() {
                     {item.label}
                     {item.subItems && (
                       <svg
-                        className={`w-4 h-4 transition-transform ${
-                          openDropdown === item.label ? 'rotate-180' : ''
-                        }`}
+                        className={`w-4 h-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''
+                          }`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -182,13 +181,13 @@ export default function Navbar() {
                         className="absolute right-0 mt-2 w-48 bg-[#1a242e] rounded-md shadow-lg z-50"
                       >
                         <Link
-                          href="/users/dashboard"
+                          href="/users"
                           className="block px-4 py-2 text-sm hover:bg-blue-500/10 transition-colors"
                           onClick={() => setShowUserMenu(false)}
                         >
                           Dashboard
                         </Link>
-                        
+
                         <div className="border-t border-gray-700 mt-2 pt-2 px-4 py-2">
                           <SignOutButton>
                             <button className="text-sm text-red-500 hover:text-red-400 transition-colors">
@@ -223,7 +222,7 @@ export default function Navbar() {
                 className="fixed inset-0 bg-black/50 z-40 md:hidden"
                 onClick={() => setIsMobileMenuOpen(false)}
               />
-              
+
               {/* Slide-out Menu */}
               <motion.div
                 initial={{ x: '-100%' }}
@@ -276,9 +275,8 @@ export default function Navbar() {
                             >
                               {item.label}
                               <svg
-                                className={`w-4 h-4 transition-transform ${
-                                  openDropdown === item.label ? 'rotate-180' : ''
-                                }`}
+                                className={`w-4 h-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''
+                                  }`}
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -343,7 +341,7 @@ export default function Navbar() {
                             </div>
                           </div>
                           <Link
-                            href="/users/dashboard"
+                            href="/users"
                             className="block py-2 text-sm text-gray-300 hover:text-white"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >

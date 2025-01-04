@@ -1,3 +1,4 @@
+import ContactForm from '@/components/ContactForm'
 import { FacebookIcon, VimeoIcon } from '../../../components/utils/Icons'
 
 const services = [
@@ -35,11 +36,11 @@ export default function VisitUs() {
   return (
     <>
       {/* Background Pattern - Fixed and behind everything */}
-      <div 
+      <div
         className="fixed top-0 left-0 w-full h-full bg-[url('/pattern1.jpg')] bg-center bg-no-repeat bg-cover -z-10"
         style={{ opacity: 1 }}
       />
-      
+
       {/* Content Container */}
       <div className="relative min-h-screen">
         {/* Hero Section */}
@@ -59,7 +60,7 @@ export default function VisitUs() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid md:grid-cols-3 gap-8">
               {services.map((service) => (
-                <div 
+                <div
                   key={service.day}
                   className="bg-card-bg p-8 rounded-xl shadow-lg text-center"
                 >
@@ -85,7 +86,7 @@ export default function VisitUs() {
               WAYS TO WATCH SERVICE ONLINE
             </h2>
             <p className="text-xl mb-12 text-foreground/90">
-              Watch service with us every weekend on your favorite platform! 
+              Watch service with us every weekend on your favorite platform!
               Tap below to find the option that works for you!
             </p>
             <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
@@ -110,13 +111,14 @@ export default function VisitUs() {
         </section>
 
         {/* Location Section */}
-        <section className="py-24 section-primary">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-12 text-foreground">
-              FIND US
-            </h2>
-            <div className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4 text-foreground">
+        <section className="bg-blue-800/50 text-white font-bold py-24 text-center">
+          <h1 className="text-7xl font-bold mb-12 ">
+            FIND US
+          </h1>
+          <div className="grid md:grid-cols-2 mx-auto max-w-7xl items-center">
+
+            <div className="w-full">
+              <h3 className="text-2xl font-bold mb-4">
                 TC SoCal
               </h3>
               <p className="text-xl text-foreground/90 mb-8">
@@ -132,9 +134,12 @@ export default function VisitUs() {
                 Get Directions
               </a>
             </div>
+            <div className="w-full">
+              <ContactForm />
+            </div>
           </div>
-        </section>
-      </div>
+        </section >
+      </div >
     </>
   )
 } 

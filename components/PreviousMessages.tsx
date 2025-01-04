@@ -10,9 +10,9 @@ const PreviousMessages: React.FC<PreviousMessagesProps> = ({ messages }) => {
     <div className="mt-24">
       <h2 className="text-3xl font-bold text-center mb-16 text-foreground">Previous Messages</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {messages.map((message) => (
-          <Link 
-            key={message.resource_key} 
+        {messages.slice(2, messages.length).map((message) => (
+          <Link
+            key={message.resource_key}
             href={`${message.link}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -20,7 +20,7 @@ const PreviousMessages: React.FC<PreviousMessagesProps> = ({ messages }) => {
           >
             <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
               <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-                <iframe 
+                <iframe
                   src={`${message.player_embed_url}?badge=0&autopause=0&player_id=0&app_id=58479`}
                   style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
                   frameBorder="0"
@@ -33,21 +33,11 @@ const PreviousMessages: React.FC<PreviousMessagesProps> = ({ messages }) => {
             <h3 className="text-xl font-bold text-foreground group-hover:text-blue-500 transition-colors">
               {message.name}
             </h3>
-            <p className="text-foreground/90">Streamed: {new Date(message.created_time).toLocaleTimeString([], {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+            <p className="text-foreground/90">Streamed: {new Date(message.created_time).toDateString()}</p>
           </Link>
         ))}
       </div>
-      <div className="text-center mt-12">
-        <Link
-          href="https://vimeo.com/user/207837736/videos"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
-        >
-          View All Messages
-        </Link>
-      </div>
     </div>
   )
-} 
+}
 export default PreviousMessages;
