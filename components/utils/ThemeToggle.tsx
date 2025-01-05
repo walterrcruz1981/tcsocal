@@ -16,7 +16,7 @@ export function ThemeToggle() {
           setIsLight(!isLight)
         }}
         className={` w-6 h-16 rounded-md
-         ${isDark ? 'bg-white' : 'bg-blue-900 '}
+         ${isDark ? 'bg-white' : 'bg-white '}
           shadow-[0_0_15px_rgba(0,0,0,0.2)] 
           hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] 
           hover:scale-105
@@ -25,7 +25,7 @@ export function ThemeToggle() {
       >
         <div className="relative w-6 h-12 bg-black-400 ">
           <div
-            className={`absolute w-[14px] ml-1 h-6 ${isLight ? 'bg-white' : 'bg-blue-900'} rounded-full 
+            className={`absolute w-[14px] ml-1 h-6  ${isLight ? 'bg-[#1a242e]' : 'bg-[#1a242e]'} rounded-full 
               transform transition-transform duration-500 ease-in-out
               ${isDark ? 'translate-y-5' : 'translate-y-1'}`
             }
