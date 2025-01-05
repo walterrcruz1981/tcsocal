@@ -11,22 +11,29 @@ const StickyVideoPlayer = dynamic(() => import('./StickyVideoPlayer'), {
 
 export default function LivePageClient() {
   return (
-    <div className="min-h-screen mt-40 lg:fixed top-0 left-0 right-0">
+    <div className="mt-36 rounded-lg">
       {/* Mobile Sticky Player - Only visible on small screens */}
       <div className="lg:hidden">
         <StickyVideoPlayer />
       </div>
 
       {/* Main Content */}
-      <div className="max-w-[1600px] rounded-lg shadow-right bg-gradient-to-r from-[#1a242e] to-gray-900/80 mx-auto grid grid-cols-1 lg:grid-cols-[1fr_350px] p-4 gap-4 text-white">
-        <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12  gap-1">
+        {/* video container */}
+        <div className="bg-black/70 lg:col-span-8 grid rounded-lg shadow-lg">
           {/* Desktop Video Player - Hidden on mobile */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block ">
             <VideoPlayer />
+            <div className='py-2 max-sm:hidden'>
+              <AboutChurch />
+            </div>
           </div>
-          <AboutChurch />
+
         </div>
-        <ChatContainer />
+        {/* chat container */}
+        <div className='bg-white col-span-4 rounded-lg'>
+          <ChatContainer />
+        </div>
       </div>
     </div>
   )

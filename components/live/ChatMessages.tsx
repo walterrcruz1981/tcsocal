@@ -15,13 +15,22 @@ export default function ChatMessages() {
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null)
   const messageIdsRef = useRef(new Set<string>())
 
+
+  const Scroll = () => {
+    const { offsetHeight, scrollHeight, scrollTop } = messagesEndRef.current as HTMLDivElement
+    if (scrollHeight <= scrollTop + offsetHeight + 100) {
+      messagesEndRef.current?.scrollTo(0, scrollHeight)
+    }
+  }
+
+
   const loadMessages = useCallback(async () => {
     try {
       const data = await chatService.getMessages()
       if (data) {
         data.forEach(msg => messageIdsRef.current.add(msg.id))
         setMessages(data)
-        setTimeout(scrollToBottom, 100)
+
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -29,6 +38,10 @@ export default function ChatMessages() {
       }
     }
   }, [])
+
+  useEffect(() => {
+    Scroll()
+  }, [messages])
 
   const setupRealtimeSubscription = useCallback(async () => {
     channelRef.current = supabase
@@ -45,7 +58,7 @@ export default function ChatMessages() {
           if (!messageIdsRef.current.has(newMessage.id)) {
             messageIdsRef.current.add(newMessage.id)
             setMessages(prev => [...prev, newMessage])
-            setTimeout(scrollToBottom, 100)
+
           }
         }
       )
@@ -62,11 +75,9 @@ export default function ChatMessages() {
         supabase.removeChannel(channelRef.current)
       }
     }
+
   }, [loadMessages, setupRealtimeSubscription])
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -86,7 +97,8 @@ export default function ChatMessages() {
       if (result) {
         messageIdsRef.current.add(result.id)
         setMessages(prev => [...prev, result])
-        setTimeout(scrollToBottom, 100)
+
+
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -102,9 +114,10 @@ export default function ChatMessages() {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div ref={messagesEndRef} className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((message) => (
           <div
+
             key={message.id}
             className={`flex items-start gap-2 ${message.user_id === user?.id ? 'flex-row-reverse' : ''
               }`}
@@ -124,8 +137,8 @@ export default function ChatMessages() {
             )}
             <div
               className={`max-w-[70%] rounded-lg p-3 ${message.user_id === user?.id
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-700 text-white'
+                ? 'bg-blue-500 text-white'
+                : 'bg-gray-700 text-white'
                 }`}
             >
               <p className="text-sm font-medium mb-1">{message.user_name}</p>
@@ -133,7 +146,7 @@ export default function ChatMessages() {
             </div>
           </div>
         ))}
-        <div ref={messagesEndRef} />
+        <div />
       </div>
 
       <div className="p-4 border-t border-gray-700">
@@ -146,7 +159,7 @@ export default function ChatMessages() {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             placeholder="Type a message..."
-            className="flex-1 bg-gray-800 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 bg-gray-200 text-gray-900 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"

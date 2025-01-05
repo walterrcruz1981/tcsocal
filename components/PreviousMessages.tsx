@@ -10,7 +10,7 @@ const PreviousMessages: React.FC<PreviousMessagesProps> = ({ messages }) => {
     <div className="mt-24">
       <h2 className="text-3xl font-bold text-center mb-16 text-foreground">Previous Messages</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {messages.slice(2, messages.length).map((message) => (
+        {messages.slice(2, messages.length - 2).map((message) => (
           <Link
             key={message.resource_key}
             href={`${message.link}`}
