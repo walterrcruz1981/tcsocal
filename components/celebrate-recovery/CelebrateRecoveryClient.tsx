@@ -1,6 +1,5 @@
 'use client'
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 const fadeIn = {
@@ -17,9 +16,9 @@ const staggerContainer = {
     }
 }
 
-export default function CelebrateRecovery() {
+export default function CelebrateRecoveryClient() {
     return (
-        <div className="relative min-h-screen">
+        <div className="bg-white relative text-black min-h-screen">
             {/* Hero Section */}
             <motion.section
                 initial={{ opacity: 0 }}
@@ -56,7 +55,7 @@ export default function CelebrateRecovery() {
             </motion.section>
 
             {/* Main Content */}
-            <section className="py-24 bg-white">
+            <section className="py-24">
                 <motion.div
                     variants={staggerContainer}
                     initial="initial"
@@ -131,45 +130,22 @@ export default function CelebrateRecovery() {
                                 <div className="space-y-4 text-lg">
                                     <p className="flex items-center gap-3">
                                         <span className="text-blue-500">📞</span>
-                                        (714) 834-9331
+                                        <a href="tel:7148349331">(714) 834-9331</a>
                                     </p>
                                     <p className="flex items-center gap-3">
                                         <span className="text-blue-500">✉️</span>
-                                        tccr@tcsocal.com
+                                        <a href="mailto:tccr@tcsocal.com">tccr@tcsocal.com</a>
                                     </p>
                                     <p className="flex items-center gap-3">
                                         <span className="text-blue-500">🏢</span>
-                                        2501 W 5th St, Santa Ana, CA 92703
+                                        <a href="https://www.google.com/maps/search/?api=1&query=2501+W+5th+St+Santa+Ana+CA+92703" target="_blank" rel="noopener noreferrer">2501 W 5th St, Santa Ana, CA 92703</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* CTA Section */}
-                    <motion.div
-                        variants={fadeIn}
-                        className="text-center"
-                    >
-                        <h2 className="text-3xl font-bold mb-6">Ready to Begin Your Journey?</h2>
-                        <p className="text-xl text-gray-600 mb-8">
-                            Take the first step towards healing. Our team is here to support you on your journey.
-                        </p>
-                        <div className="flex justify-center gap-4">
-                            <Link
-                                href="/connect"
-                                className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
-                            >
-                                Contact Us
-                            </Link>
-                            <Link
-                                href="/connect/groups"
-                                className="bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-700 transition"
-                            >
-                                Join a Group
-                            </Link>
-                        </div>
-                    </motion.div>
+
                 </motion.div>
             </section>
         </div>

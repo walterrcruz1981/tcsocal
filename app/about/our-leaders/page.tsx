@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { pastoralTeam } from '@/data/pastoralTeam'
 import ParallaxHero from '@/components/hero/ParallaxHero'
 
@@ -7,7 +6,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen">
-      <ParallaxHero 
+      <ParallaxHero
         title="Our Leaders"
         subtitle="@TEMPLO CALVARIO"
         imageSrc="/about/leaders-hero.webp"
@@ -18,13 +17,13 @@ export default function About() {
       {/* Senior Pastor Section */}
       <section className="py-24 section-primary">
         <div className="max-w-7xl mx-auto px-4">
-         
-            {/* Left Column - Heading */}
-            <div>
-              <h2 className="text-4xl md:text-7xl font-semi-bold text-foreground">
-                MEET OUR<br></br> SENIOR PASTOR
-              </h2>
-            </div>
+
+          {/* Left Column - Heading */}
+          <div>
+            <h2 className="text-4xl md:text-7xl font-semi-bold text-foreground">
+              MEET OUR<br></br> SENIOR PASTOR
+            </h2>
+          </div>
 
           {/* Full Width Image */}
           <div className="mt-16 grid md:grid-cols-12 items-end gap-2">
@@ -38,14 +37,14 @@ export default function About() {
                 quality={100}
               />
             </div>
-            
+
             {/* Right Column - Text */}
             <div className="col-span-3 z-10 text-white">
               <p className="text-lg leading-relaxed text-foreground/90 bg-black/50 p-8 rounded-lg md:-ml-28 md:-mb-16 shadow-lg ">
-                <span className="font-bold ">Dr. Daniel de León</span>, the warm-hearted and visionary Senior Pastor of 
-                Templo Calvario, has accomplished remarkable feats with the unwavering support of his 
-                late wife, Ruth de León. Since 1976, together they led the church with a deep care for 
-                those in need, reflected in their outreach ministries such as Heart for the City and 
+                <span className="font-bold ">Dr. Daniel de León</span>, the warm-hearted and visionary Senior Pastor of
+                Templo Calvario, has accomplished remarkable feats with the unwavering support of his
+                late wife, Ruth de León. Since 1976, together they led the church with a deep care for
+                those in need, reflected in their outreach ministries such as Heart for the City and
                 Grateful Heart.
               </p>
             </div>
@@ -60,8 +59,8 @@ export default function About() {
           <p className="text-xl text-center mb-12 text-foreground/90">Meet our Pastoral Team</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pastoralTeam.map((pastor) => (
-              <div 
-                key={pastor.name} 
+              <div
+                key={pastor.name}
                 className="text-center rounded-lg shadow-lg bg-card-bg overflow-hidden group relative
                   transform transition-all duration-300 hover:scale-103 hover:shadow-xl"
               >
@@ -70,7 +69,7 @@ export default function About() {
                     src={pastor.image}
                     alt={pastor.name}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     quality={100}
                   />
@@ -91,22 +90,6 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Connect Section */}
-      <section className="py-16 section-primary">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-4 text-foreground">Connect</h3>
-          <p className="text-lg mb-8 text-foreground/90">
-            To connect with our pastoral team and you will receive a response within 3-5 business days.
-          </p>
-          <Link 
-            href="/connect"
-            className="inline-block bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition"
-          >
-            Send Message
-          </Link>
         </div>
       </section>
     </div>
