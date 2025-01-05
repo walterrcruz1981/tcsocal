@@ -20,6 +20,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "TC SoCal - Templo Calvario",
   description: "For more than 80 years, TC has been ministering to the needs of the people and now more than ever before God is working through TC to turn hearts back to God, one another, and the City! Our greatest joy is seeing hearts transformed, marriages restored, families healed, addicts set free, and lives made new! Every Sunday at TC is Freedom Sunday because the heart revolution is not a one-time event but a movement and a way of life. Join us and join the heart revolution!",
+  icons: {
+    icon: '/about/heart-revolution.webp',
+  },
 };
 
 export default function RootLayout({
@@ -30,6 +33,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
+
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground mt-[-115px]`}>
 
           < ThemeProvider >
