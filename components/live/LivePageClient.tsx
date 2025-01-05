@@ -20,7 +20,7 @@ export default function LivePageClient() {
       {/* Main Content */}
       <div className="grid grid-cols-1 lg:grid-cols-12  gap-1">
         {/* video container */}
-        <div className="bg-yellow-500  lg:col-span-8 grid rounded-lg">
+        <div className="bg-black/70 lg:col-span-8 grid rounded-lg shadow-lg">
           {/* Desktop Video Player - Hidden on mobile */}
           <div className="hidden lg:block ">
             <VideoPlayer />
