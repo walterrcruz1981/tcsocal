@@ -19,7 +19,7 @@ export default function Carousel({ images }: CarouselProps) {
     if (!isDragging) {
       const timer = setInterval(() => {
         setCurrentIndex((current) => (current + 1) % images.length)
-      }, 6000)
+      }, 8000)
       return () => clearInterval(timer)
     }
   }, [images.length, isDragging])
@@ -55,7 +55,7 @@ export default function Carousel({ images }: CarouselProps) {
 
   // Shared drag end logic
   const handleDragEnd = (diff: number) => {
-    const threshold = 50
+    const threshold = 75
 
     if (Math.abs(diff) > threshold) {
       if (diff > 0) {

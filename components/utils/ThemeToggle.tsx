@@ -8,15 +8,15 @@ export function ThemeToggle() {
   const [isLight, setIsLight] = useState(false)
 
   return (
-    <div className="fixed left-4 top-3/4 -translate-y-1/2 z-50">
+    <div className="fixed right-4 top-3/4 -translate-y-1/2 z-50">
       <button
         onClick={() => {
           setIsLight(!isLight)
           setTheme(isDark ? 'light' : 'dark')
           setIsLight(!isLight)
         }}
-        className={` w-1 h-16 rounded-md
-         ${isDark ? 'bg-orange-900' : 'bg-blue-900 '}
+        className={` w-6 h-16 rounded-md
+         ${isDark ? 'bg-white' : 'bg-white '}
           shadow-[0_0_15px_rgba(0,0,0,0.2)] 
           hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] 
           hover:scale-105
@@ -24,10 +24,10 @@ export function ThemeToggle() {
         aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       >
         <div className="relative w-6 h-12 bg-black-400 ">
-          <div 
-            className={`absolute w-[11px] h-6 ${isLight ? 'bg-purple-400' : 'bg-blue-400'} rounded-full 
+          <div
+            className={`absolute w-[14px] ml-1 h-6  ${isLight ? 'bg-[#1a242e]' : 'bg-[#1a242e]'} rounded-full 
               transform transition-transform duration-500 ease-in-out
-              ${isDark ? 'translate-y-4' : 'translate-y-1'}`
+              ${isDark ? 'translate-y-5' : 'translate-y-1'}`
             }
           />
         </div>
